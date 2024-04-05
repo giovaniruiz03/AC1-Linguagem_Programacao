@@ -1,3 +1,5 @@
+PAGINA 1
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -66,3 +68,124 @@
     </div>
 </body>
 </html>
+
+
+
+PAGINA 2
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .menu-superior {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex; 
+			justify-content: center;
+            align-items: center; 
+        }
+
+        .menu-superior a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+			margin: 0 10px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        .menu-superior a:hover {
+            background-color: #555;
+        }
+        
+       
+        .menu-lateral {
+            position: fixed;
+            top: 40px; 
+            left: 0;
+            width: 200px;
+            height: calc(100% - 40px); 
+            background-color: #555;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu-lateral a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            transition: background-color 0.3s ease; 
+        }
+
+        .menu-lateral a:hover {
+            background-color: #777; 
+        }
+        
+        .area-de-conteudo {
+            margin-left: 220px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .rodape {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-superior">
+        <div>
+            <a href="#">Início</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </div>
+    </div>
+    
+
+    <div class="menu-lateral">
+        <h2>Barra Lateral</h2>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+    
+    <div class="area-de-conteudo">
+        <h2>Área de Conteúdo</h2>
+        <p>Aqui fica o conteúdo principal da nossa página HTML</p>
+    </div>
+    
+    <div class="rodape">
+        <p>© 2024 - Site CCS Layout</p>
+    </div>
+</body>
+</html>
+
