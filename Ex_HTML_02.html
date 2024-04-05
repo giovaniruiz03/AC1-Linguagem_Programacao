@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos HI</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .checkbox-column {
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catálogo de Produtos HI</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="checkbox-column"></th>
+                <th>Foto</th>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Qtde em estoque</th>
+                <th>Valo Unitário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td><img src="c:\Users\girui\Pictures\mouse1.jpeg" alt="Mouse Laser com fio"></td>
+                <td>1</td>
+                <td>Mouse Laser com fio</td>
+                <td>5</td>
+                <td>R$ 179,00</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td><img src="c:\Users\girui\Pictures\mouse2.jpeg" alt="Mouse Bluetooth Dell"></td>
+                <td>2</td>
+                <td>Mouse Bluetooth Dell</td>
+                <td>6</td>
+                <td>R$ 338,00</td>
+            </tr>
+            <tr>
+                <td class="checkbox-column"><input type="checkbox"></td>
+                <td><img src="c:\Users\girui\Pictures\mouse3.jpeg" alt="Mouse óptico usb preto"></td>
+                <td>3</td>
+                <td>Mouse óptico usb preto 100</td>
+                <td>3</td>
+                <td>R$ 48,30</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Características do Produto</h2>
+    <ul>
+        <li><strong>Sensor óptico preciso com 1.600 DPI:</strong> Permite trabalhar na maioria das superfícies.</li>
+        <li><strong>Configuração USB rápida e fácil:</strong> Com cabo de 1,5m.</li>
+        <li><strong>Design ambidestro:</strong> Produzido para caber de forma natural e perfeita na palma da sua mão.</li>
+        <li><strong>Três botões integrados.</strong></li>
+        <li><strong>Ampla compatibilidade:</strong> Suporta Windows e Mac.</li>
+    </ul>
+    <h2>Avaliação do produto</h2>
+    <dl>
+        <dt>José Aparecido</dt>
+        <dd>Muito bom</dd>
+        <dt>Joaquim Jorge</dt>
+        <dd>Bom</dd>
+    </dl>
+</body>
+</html>
