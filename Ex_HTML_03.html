@@ -3,105 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela</title>
+    <title>Tabela HTML</title>
     <style>
         table {
             border-collapse: collapse;
-            width: 60%;
+            width: 100%;
         }
-
         th, td {
             border: 1px solid black;
-            padding: 14px;
+            padding: 8px;
             text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <h1>Tabela</h1>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="3">Grupo 1</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="3">Grupo 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="3">Grupo 3</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+
+<table>
+    <tr>
+        <td>Linha 1</td>
+        <td>Linha 1</td>
+        <td>Linha 1</td>
+    </tr>
+    <tr>
+        <td>Linha 2</td>
+        <td rowspan="2">Linha 2 e 3</td>
+        <td>Linha 2</td>
+    </tr>
+    <tr>
+        <td>Linha 3</td>
+        <td>Linha 3</td>
+    </tr>
+    <tr>
+        <td>Linha 4</td>
+        <td>Linha 4</td>
+        <td>Linha 4</td>
+    </tr>
+</table>
+
+<br> <br> <br> <br>
+
+<table>
+    <tr>
+        <td rowspan="4">Linha 1 a 4</td>
+        <td>Linha 1</td>
+        <td>Linha 1</td>
+        <td>Linha 1</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Linha 2 e 3</td>
+        <td>Linha 2</td>
+        <td>Linha 2</td>
+    </tr>
+    <tr>
+        <td>Linha 3</td>
+        <td>Linha 3</td>
+    </tr>
+    <tr>
+        <td>Linha 4</td>
+        <td>Linha 4</td>
+        <td>Linha 4</td>
+    </tr>
+    <tr>
+        <td colspan="2">Coluna 1 e 2 Linha 5</td>
+        <td>Linha 5</td>
+        <td>Linha 5</td>
+    </tr>
+</table>
+
+
 </body>
 </html>
+
