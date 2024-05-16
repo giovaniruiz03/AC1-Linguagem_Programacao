@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar Cor de Fundo (Div)</title>
+    <style>
+        #div {
+            width: 1600px;
+            height: 800px;
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="mudaCor">Mudar cor da div</button>
+    <div id="div"></div>
+
+    <script>
+
+        const cores = ['red', 'green', 'blue', 'yellow', 'black'];
+
+        document.getElementById('mudaCor').addEventListener('click', function() {
+
+            const indice = Math.floor(Math.random() * cores.length);
+
+            const corSelecionada = cores[indice];
+
+            document.getElementById('div').style.backgroundColor = corSelecionada;
+        });
+    </script>
+</body>
+</html>
