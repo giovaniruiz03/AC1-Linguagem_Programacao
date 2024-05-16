@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            border: none;
+        }
+        #listaTarefas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa">
+    <button id="adicionaTarefa">Adicionar tarefa</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        document.getElementById('adicionaTarefa').addEventListener('click', function() {
+            const novaTarefaTexto = document.getElementById('novaTarefa').value;
+            if (novaTarefaTexto.trim() !== '') {
+                const novaTarefa = document.createElement('li');
+                novaTarefa.innerText = novaTarefaTexto;
+                document.getElementById('listaTarefas').appendChild(novaTarefa);
+                document.getElementById('novaTarefa').value = '';
+            } else {
+                alert('Digite uma tarefa.');
+            }
+        });
+    </script>
+</body>
+</html>
