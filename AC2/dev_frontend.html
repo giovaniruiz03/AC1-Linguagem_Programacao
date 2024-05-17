@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="cadastroForm">
+        <h2>Dados Pessoais</h2>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" name="telefone" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" required>
+
+        <label for="rg">RG</label>
+        <input type="text" id="rg" name="rg" required>
+
+        <h2>Cargo</h2>
+        <label for="cargo">Nome</label>
+        <select id="cargo" name="cargo" required></select>
+
+        <label for="salario">Salário</label>
+        <input type="text" id="salario" name="salario" required>
+
+        <h2>Setor</h2>
+        <label for="setor">Sigla</label>
+        <select id="setor" name="setor" required></select>
+
+        <label for="setorNome">Nome</label>
+        <input type="text" id="setorNome" name="setorNome" required>
+
+        <h2>Convênio</h2>
+        <label for="convenio">Nome</label>
+        <select id="convenio" name="convenio" required></select>
+
+        <label for="valorTitular">Valor para o titular</label>
+        <input type="text" id="valorTitular" name="valorTitular" required>
+
+        <label for="valorDependente">Valor para o dependente</label>
+        <input type="text" id="valorDependente" name="valorDependente" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const setorUrl = 'https://aulalp2024.free.beeceptor.com/setor';
+            const cargoUrl = 'https://aulalp2024.free.beeceptor.com/cargo';
+            const convenioUrl = 'https://aulalp2024.free.beeceptor.com/convenio';
+            const saveUrl = 'https://66266bc2052332d55322d1f0.mockapi.io/funcionario';
+
+            const cargoSelect = document.getElementById('cargo');
+            const setorSelect = document.getElementById('setor');
+            const convenioSelect = document.getElementById('convenio');
+            const salarioInput = document.getElementById('salario');
+            const setorNomeInput = document.getElementById('setorNome');
+            const valorTitularInput = document.getElementById('valorTitular');
+            const valorDependenteInput = document.getElementById('valorDependente');
+
+            Promise.all([
+                fetch(setorUrl).then(response => response.json()),
+                fetch(cargoUrl).then(response => response.json()),
+                fetch(convenioUrl).then(response => response.json())
+            ]).then(([setores, cargos, convenios]) => {
+
+                setores.forEach(setor => {
+                    const option = document.createElement('option');
+                    option.value = setor.id;
+                    option.textContent = setor.sigla;
+                    option.dataset.nome = setor.nome;
+                    setorSelect.appendChild(option);
+                });
+                cargos.forEach(cargo => {
+                    const option = document.createElement('option');
+                    option.value = cargo.id;
+                    option.textContent = cargo.nome;
+                    option.dataset.salario = cargo.salario;
+                    cargoSelect.appendChild(option);
+                });
+                convenios.forEach(convenio => {
+                    const option = document.createElement('option');
+                    option.value = convenio.id;
+                    option.textContent = convenio.nome;
+                    option.dataset.valorTitular = convenio.valorTitular;
+                    option.dataset.valorDependente = convenio.valorDependente;
+                    convenioSelect.appendChild(option);
+                });
+            }).catch(error => {
+                console.error('Erro ao carregar dados:', error);
+            });
+
+            cargoSelect.addEventListener('change', function () {
+                const selectedOption = cargoSelect.selectedOptions[0];
+                salarioInput.value = selectedOption ? selectedOption.dataset.salario : '';
+            });
+
+            setorSelect.addEventListener('change', function () {
+                const selectedOption = setorSelect.selectedOptions[0];
+                setorNomeInput.value = selectedOption ? selectedOption.dataset.nome : '';
+            });
+
+            convenioSelect.addEventListener('change', function () {
+                const selectedOption = convenioSelect.selectedOptions[0];
+                valorTitularInput.value = selectedOption ? selectedOption.dataset.valorTitular : '';
+                valorDependenteInput.value = selectedOption ? selectedOption.dataset.valorDependente : '';
+            });
+
+            document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                fetch(saveUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao salvar os dados');
+                    }
+                    return response.json();
+                }).then(data => {
+                    alert('Cadastro realizado com sucesso!');
+                    event.target.reset();
+                }).catch(error => {
+                    console.error('Erro ao salvar os dados:', error);
+                    alert('Erro ao salvar os dados');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
