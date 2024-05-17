@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Cliques do Mouse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #contador {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="contador">0</div>
+    <button id="addBtn">Clique aqui</button>
+
+    <script>
+        const contador = document.getElementById('contador');
+        const addBtn = document.getElementById('addBtn');
+
+        let valorContador = 0;
+
+        addBtn.addEventListener('click', () => {
+
+            valorContador += 1;
+
+            contador.textContent = valorContador;
+        });
+    </script>
+</body>
+</html>
