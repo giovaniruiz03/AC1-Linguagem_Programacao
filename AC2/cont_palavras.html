@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Palavras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        textarea {
+            width: 300px;
+            height: 150px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea id="texto" placeholder="Digite sua frase ou parágrafo aqui..."></textarea>
+        <button id="contarBtn">Contar Palavras</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        // Seleciona os elementos do DOM
+        const texto = document.getElementById('texto');
+        const contarBtn = document.getElementById('contarBtn');
+        const resultado = document.getElementById('resultado');
+
+        // Função para contar palavras
+        function contarPalavras() {
+            // Obtém o valor do campo de texto
+            const valorTexto = texto.value.trim();
+
+            // Verifica se o campo de texto está vazio
+            if (valorTexto === '') {
+                resultado.textContent = 'Por favor, digite uma frase ou parágrafo.';
+                return;
+            }
+
+            // Divide o texto em palavras usando espaços como delimitadores
+            const palavras = valorTexto.split(/\s+/);
+            
+            // Conta o número de palavras
+            const numeroPalavras = palavras.length;
+
+            // Atualiza o conteúdo do elemento resultado
+            resultado.textContent = `Número de palavras: ${numeroPalavras}`;
+        }
+
+        // Adiciona um evento de clique ao botão
+        contarBtn.addEventListener('click', contarPalavras);
+    </script>
+</body>
+</html>
