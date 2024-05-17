@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container_num {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container_btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .container_result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container_num">
+        <input type="text" id="numero1" placeholder="Digite o primeiro número">
+        <input type="text" id="numero2" placeholder="Digite o segundo número">
+    </div>
+    <div class="container_btn">
+        <button id="somarBtn">Somar</button>
+        <button id="subtrairBtn">Subtrair</button>
+        <button id="multiplicarBtn">Multiplicar</button>
+        <button id="dividirBtn">Dividir</button>
+    </div>
+        <div id="resultado" class="container_result"></div>
+    </div>
+
+    <script>
+        const numero1 = document.getElementById('numero1');
+        const numero2 = document.getElementById('numero2');
+        const somarBtn = document.getElementById('somarBtn');
+        const subtrairBtn = document.getElementById('subtrairBtn');
+        const multiplicarBtn = document.getElementById('multiplicarBtn');
+        const dividirBtn = document.getElementById('dividirBtn');
+        const resultado = document.getElementById('resultado');
+
+        function validaEntradas() {
+            if (numero1.value === '' || numero2.value === '') {
+                alert('Por favor, preencha os campos numéricos.');
+                return false;
+            }
+            return true;
+        }
+
+        function realizaOperacao(operacao) {
+            if (!validaEntradas()) return;
+
+            const valor1 = parseFloat(numero1.value);
+            const valor2 = parseFloat(numero2.value);
+            let resultadoOperacao;
+
+            switch (operacao) {
+                case 'somar':
+                    resultadoOperacao = valor1 + valor2;
+                    break;
+                case 'subtrair':
+                    resultadoOperacao = valor1 - valor2;
+                    break;
+                case 'multiplicar':
+                    resultadoOperacao = valor1 * valor2;
+                    break;
+                case 'dividir':
+                    if (valor2 === 0) {
+                        alert('Impossível dividir por zero');
+                        return;
+                    }
+                    resultadoOperacao = valor1 / valor2;
+                    break;
+            }
+
+            resultado.textContent = `Resultado: ${resultadoOperacao}`;
+        }
+
+        somarBtn.addEventListener('click', () => realizaOperacao('somar'));
+        subtrairBtn.addEventListener('click', () => realizaOperacao('subtrair'));
+        multiplicarBtn.addEventListener('click', () => realizaOperacao('multiplicar'));
+        dividirBtn.addEventListener('click', () => realizaOperacao('dividir'));
+    </script>
+</body>
+
+</html>
