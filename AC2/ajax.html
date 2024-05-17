@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lateral com Atividades (AJAX)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #menu {
+            width: 200px;
+            background-color: #797fda;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        #menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        #menu a:hover {
+            background-color: #ddd;
+        }
+        #conteudo {
+            flex-grow: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <a href="#" onclick="document.getElementById('conteudo').innerHTML = 'Você escolheu o menu lateral: Tags HTML'; return false;">Tags HTML</a>
+        <a href="#" onclick="document.getElementById('conteudo').innerHTML = 'Você escolheu o menu lateral: CSS Fundamentos'; return false;">CSS Fundamentos</a>
+        <a href="#" onclick="document.getElementById('conteudo').innerHTML = 'Você escolheu o menu lateral: Flexbox'; return false;">Flexbox</a>
+        <a href="#" onclick="document.getElementById('conteudo').innerHTML = 'Você escolheu o menu lateral: DOM'; return false;">DOM</a>
+    </div>
+    <div id="conteudo">
+        <h2>Bem-vindo</h2>
+        <p>Selecione uma opção no menu lateral para visualizar o conteúdo.</p>
+    </div>
+</body>
+</html>
